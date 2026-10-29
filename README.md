@@ -50,8 +50,13 @@ automation, and reliability engineering across AWS and Azure platforms.
 ![ARM Templates](https://img.shields.io/badge/ARM_Templates-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white)
 
 ### Cloud Platforms
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazon-aws&logoColor=white) **EC2, S3, Lambda, RDS, CloudWatch**  
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white) **VMs, Blob Storage, Functions, SQL Database, Monitor**
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazon-aws&logoColor=white)  
+**EC2, S3, Lambda, RDS, CloudWatch, Secrets Manager, Systems Manager Parameter Store, Fargate, 
+CodeBuild, DynamoDB, API Gateway, CloudFront (CDN), Elastic Load Balancer, NAT Gateway**
+
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white)  
+**VMs, Blob Storage, Functions, SQL Database, Monitor, Automation Runbooks, Front Door, 
+Load Balancer, Application Gateway**
 
 ### Monitoring & Observability
 ![Datadog](https://img.shields.io/badge/Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white)
