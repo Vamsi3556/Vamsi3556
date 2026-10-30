@@ -67,6 +67,24 @@ Load Balancer, Application Gateway**
 
 ---
 
+## 🚀 Featured Projects
+
+### [SLO & Error Budget Monitor](https://github.com/Vamsi3556/slo-error-budget-monitor)
+**Problem it solves**: teams define SLOs on paper but rarely track error-budget burn in real
+time, so incidents get noticed late and postmortems happen reactively (if at all).
+**What it does**: synthetic-checks a set of services on a schedule, computes rolling uptime and
+error-budget burn against an SLO target, and automatically files structured GitHub Issues - an
+immediate blameless-postmortem template on failure, and a proactive warning issue before the
+budget is fully burned, auto-closing once recovered.
+**Tech Stack**: ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+![CodeQL](https://img.shields.io/badge/CodeQL-security-2088FF?style=flat-square&logo=github&logoColor=white)
+![Bandit](https://img.shields.io/badge/Bandit-SAST-yellow?style=flat-square)
+![pip--audit](https://img.shields.io/badge/pip--audit-dependency_scan-yellow?style=flat-square)  
+**Link**: https://github.com/Vamsi3556/slo-error-budget-monitor
+
+---
+
 ## 📫 Let's Connect
 
 ![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white) **Vamsi Vatsavai** <!-- add linkedin.com/in/<slug> link once available -->
