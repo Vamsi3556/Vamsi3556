@@ -123,6 +123,13 @@ workflow now commits real `data/history.json` updates every 30 minutes on its ow
 which naturally produces genuine, organically-timed repo activity going forward with no
 fabrication needed.
 
+## Cross-reference: in-progress work in Project #1's own repo
+
+`slo-error-budget-monitor` has its own `AI_CONTEXT.md` (https://github.com/Vamsi3556/slo-error-budget-monitor/blob/main/AI_CONTEXT.md)
+tracking a currently **unfinished** task: a deliberate chaos test of the incident/error-budget-
+warning issue-filing pipeline (verifying it works against the real GitHub API, not just mocked
+unit tests). Check that file's "IN PROGRESS" section before starting new work on that repo.
+
 ## Open items / next actions (backlog)
 
 - [ ] Build a second real SRE-relevant project if desired (candidates discussed: Terraform
