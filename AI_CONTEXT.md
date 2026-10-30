@@ -24,7 +24,7 @@ roles at major tech companies (Google, Meta, Amazon, Microsoft).
 - LinkedIn: no public profile URL/slug provided yet — currently shown as plain text, not a link
 - Experience: DevOps Engineer, 2-4 years, AWS + Azure
 - No AWS/Azure certifications yet
-- No dedicated portfolio/SRE projects built yet (as of this writing)
+- First real portfolio project shipped: see "Project #1" section below
 
 ## Key decisions and rationale
 
@@ -79,20 +79,62 @@ roles at major tech companies (Google, Meta, Amazon, Microsoft).
      tools in actual job experience)
 4. Contact ("Let's Connect"): Email (live mailto link), GitHub (live link), LinkedIn (name only,
    no link yet)
+4.5. Featured Projects: one real entry (SLO & Error Budget Monitor - see "Project #1" below).
 5. Closing line about target companies
 
-No Featured Projects or Certifications sections currently (see decision #1 above).
+Certifications section still absent (see decision #1) - only re-add if certs are actually earned.
+
+## Project #1: SLO & Error Budget Monitor (built, shipped)
+
+Repo: https://github.com/Vamsi3556/slo-error-budget-monitor
+
+Built as the first real Featured Project, specifically to solve an actual problem (not a skills
+demo) - see decision below. Summary:
+
+- Synthetic HTTP checks (GitHub API, Open-Meteo, JSONPlaceholder - no-auth public APIs by design)
+  run on a GitHub Actions cron schedule (every 30 min).
+- Computes rolling uptime % and SRE-standard error-budget-consumed % over a configurable window.
+- Auto-files a GitHub Issue with a blameless-postmortem template the moment a check fails
+  (immediate incident), and a separate proactive "error-budget-warning" issue if the budget
+  crosses a threshold before an outright breach; auto-closes the warning once recovered.
+- Security: Bandit (SAST), pip-audit (dependency CVEs - caught and fixed a real vulnerability in
+  `requests==2.32.3` during development, now pinned to `2.33.0`), CodeQL, Dependabot. Issue
+  creation uses the workflow's built-in `GITHUB_TOKEN` (least privilege) rather than a stored
+  PAT; an optional webhook URL for external notifications is read from a GitHub Actions secret,
+  never hardcoded.
+- Verified locally before pushing: ruff clean, 12/12 pytest passing, Bandit clean, pip-audit
+  clean, and a live end-to-end dry run against the real target APIs. CI also passed on GitHub
+  after push (lint/test, security-scan, and CodeQL jobs all green).
+- Added back into the profile README's Featured Projects section with a problem/solution framing
+  so it reads as "what problem did this solve" rather than a bare skills list - the user
+  explicitly asked for interview-ready project narratives, not practice exercises.
+
+**Deployment note**: pushing `.github/workflows/*.yml` files via the GitHub API requires the
+PAT to have the "Workflows: Read and write" permission specifically (separate from Contents).
+The first attempt failed with a 403 until the user added that permission to the token.
+
+**Decision: no fabricated/backdated commit timestamps.** The user asked whether commit push
+times could be spaced out (first by days/weeks, then reduced to "a few hours") to make a
+single-session build look like it happened progressively over time. This was declined - spacing
+out fake timestamps to misrepresent when work actually happened is fabricating a timeline for
+whoever evaluates this (recruiters/interviewers), regardless of whether the gap is hours or
+weeks. Do not do this if asked again. The honest alternative in place: the scheduled `monitor.yml`
+workflow now commits real `data/history.json` updates every 30 minutes on its own real clock,
+which naturally produces genuine, organically-timed repo activity going forward with no
+fabrication needed.
 
 ## Open items / next actions (backlog)
 
-- [ ] Build 1-2 real SRE-relevant projects (e.g. Terraform module, monitoring/alerting automation,
-      CI/CD pipeline with rollback, chaos engineering experiment). Once they exist, add a
-      "Featured Projects" section back into README.md with real names/descriptions/links.
+- [ ] Build a second real SRE-relevant project if desired (candidates discussed: Terraform
+      module, chaos engineering experiment - deprioritized earlier in favor of the problem-first
+      SLO monitor above).
 - [ ] Get the real LinkedIn profile URL slug from the user and convert the plain-text name into
       a working link.
 - [ ] Revisit Certifications section only if the user actually pursues/earns an AWS or Azure cert.
 - [ ] Optional: set up a local git clone of `Vamsi3556/Vamsi3556` instead of relying solely on
       API-based pushes, if the user wants normal local git workflow on this machine.
+- [ ] Optional: check back on `slo-error-budget-monitor`'s scheduled workflow after it's had time
+      to run a few times, to confirm `data/history.json` is actually accumulating real check data.
 
 ## Ground rules for any AI continuing this work
 
